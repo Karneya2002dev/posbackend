@@ -1218,8 +1218,8 @@ app.use("/uploads", express.static("uploads"));
 //   RAZORPAY_KEY_ID=rzp_test_XXXXXXXXXX
 //   RAZORPAY_KEY_SECRET=XXXXXXXXXXXXXXXXXX
 const razorpay = new Razorpay({
-  key_id:    RAZORPAY_KEY_ID,
-  key_secret:RAZORPAY_KEY_SECRET,
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret:process.env.RAZORPAY_KEY_SECRET,
 });
 
 // ─── Plan prices (paise — Razorpay uses paise, 1 INR = 100 paise) ─────────────
