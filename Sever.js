@@ -1218,8 +1218,8 @@ app.use("/uploads", express.static("uploads"));
 //   RAZORPAY_KEY_ID=rzp_test_XXXXXXXXXX
 //   RAZORPAY_KEY_SECRET=XXXXXXXXXXXXXXXXXX
 const razorpay = new Razorpay({
-  key_id:    "rzp_test_T4ZS2PNE2CqlgK",
-  key_secret: "Gfdy2FXfMvfw1tg7KLxtPhl5",
+  key_id:    RAZORPAY_KEY_ID,
+  key_secret:RAZORPAY_KEY_SECRET,
 });
 
 // ─── Plan prices (paise — Razorpay uses paise, 1 INR = 100 paise) ─────────────
@@ -1235,6 +1235,7 @@ const db = mysql.createPool({
   user:     process.env.DB_USER     || "root",
   password: process.env.DB_PASSWORD || "",
   database: process.env.DB_NAME     || "pointofsale",
+  port:     process.env.DB_PORT     || 3306,   // ✅ add this — filess.io uses 3307
 });
 
 // ─── In-memory OTP store ──────────────────────────────────────────────────────
