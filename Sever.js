@@ -1769,7 +1769,7 @@ app.post("/categories", upload.single("image"), async (req, res) => {
 
     const cat_id = await generateCatId();
     const image  = req.file
-      ? `http://192.168.1.37:5000/uploads/${req.file.filename}`
+      ? `https://posbackend-hige.onrender.com/uploads/${req.file.filename}`
       : null;
 
     const [result] = await db.query(
@@ -1794,7 +1794,7 @@ app.put("/categories/:id", upload.single("image"), async (req, res) => {
       return res.status(404).json({ message: "Category not found" });
 
     const image       = req.file
-      ? `http://192.168.1.37:5000/uploads/${req.file.filename}`
+      ? `https://posbackend-hige.onrender.com/uploads/${req.file.filename}`
       : existing[0].image;
     const updatedName = name ?? existing[0].name;
 
@@ -1850,7 +1850,7 @@ app.post("/products", upload.single("image"), async (req, res) => {
 
     const product_id = await generateProdId();
     const image      = req.file
-      ? `http://192.168.1.37:5000/uploads/${req.file.filename}`
+      ? `https://posbackend-hige.onrender.com/uploads/${req.file.filename}`
       : null;
 
     const [result] = await db.query(
@@ -1882,7 +1882,7 @@ app.put("/products/:id", upload.single("image"), async (req, res) => {
       return res.status(404).json({ message: "Product not found" });
 
     const image = req.file
-      ? `http://192.168.1.37:5000/uploads/${req.file.filename}`
+      ? `https://posbackend-hige.onrender.com/uploads/${req.file.filename}`
       : existing[0].image;
 
     await db.query(
